@@ -1,0 +1,46 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">
+            CREAR PERMISO_ROL
+        </nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">
+            ACTUALIZAR PERMISO_ROL
+        </nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Rol</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                            
+                           [(ngModel)]="elPermiso_Rol.rol">
+                    <p *ngIf="intentoEnvio && elPermiso_Rol.rol=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Permiso</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [(ngModel)]="elPermiso_Rol.permiso">
+                    <p *ngIf="intentoEnvio && elPermiso_Rol.permiso=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            
+            <div class="row">
+                    <button  *ngIf="modoCreacion" 
+                              class="btn btn-primary btn-block"  (click)="agregar()">
+                        Crear
+                    </button>
+                    <button *ngIf="!modoCreacion" 
+                            class="btn btn-primary btn-block"  (click)="editar()">
+                        Actualizar
+                    </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>

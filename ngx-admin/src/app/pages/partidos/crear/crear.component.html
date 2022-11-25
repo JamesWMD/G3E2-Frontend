@@ -1,0 +1,45 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">
+            CREAR PARTIDO
+        </nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">
+            ACTUALIZAR PARTIDO
+        </nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Nombre</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           
+                           [(ngModel)]="elPartido.nombre">
+                    <p *ngIf="intentoEnvio && elPartido.nombre=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Lema</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"                            
+                           [(ngModel)]="elPartido.lema">
+                    <p *ngIf="intentoEnvio && elPartido.lema=='' ">Requerido</p>
+                </div>
+            </div>
+            <br> 
+            <div class="row">
+                    <button  *ngIf="modoCreacion" 
+                              class="btn btn-primary btn-block"  (click)="agregar()">
+                        Crear
+                    </button>
+                    <button *ngIf="!modoCreacion" 
+                            class="btn btn-primary btn-block"  (click)="editar()">
+                        Actualizar
+                    </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>

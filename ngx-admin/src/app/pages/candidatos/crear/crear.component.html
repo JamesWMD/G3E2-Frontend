@@ -1,0 +1,68 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">
+            CREAR CANDIDATO
+        </nb-card-header>
+        <nb-card-header *ngIf="!modoCreacion">
+            ACTUALIZAR CANDIDATO
+        </nb-card-header>
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Numero_Resolucion</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                            
+                           [(ngModel)]="elCandidato.numero_resolucion">
+                    <p *ngIf="intentoEnvio && elCandidato.numero_resolucion=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Cedula</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                            
+                           [(ngModel)]="elCandidato.cedula">
+                    <p *ngIf="intentoEnvio && elCandidato.cedula=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Nombres</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [(ngModel)]="elCandidato.nombres">
+                    <p *ngIf="intentoEnvio && elCandidato.nombres=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Apellidos</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text" 
+                           [(ngModel)]="elCandidato.apellidos">
+                    <p *ngIf="intentoEnvio && elCandidato.apellidos=='' ">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                    <button  *ngIf="modoCreacion" 
+                              class="btn btn-primary btn-block"  (click)="agregar()">
+                        Crear
+                    </button>
+                    <button *ngIf="!modoCreacion" 
+                            class="btn btn-primary btn-block"  (click)="editar()">
+                        Actualizar
+                    </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>

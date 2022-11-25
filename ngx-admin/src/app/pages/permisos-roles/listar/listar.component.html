@@ -1,0 +1,31 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header>
+            ADMINISTRACIÓN PERMISOS_ROLES 
+            <button type="button" class="btn btn-success" (click)="agregar()">
+                <i class="fas fa-plus"></i>
+            </button>
+        </nb-card-header>
+        <table class="table">
+            <tr>
+                <th *ngFor="let columaActual of nombresColumnas">{{columaActual}}</th>
+            </tr>
+            <ng-container *ngFor="let permiso_rolActual of permisos_roles">
+                <tr>
+                    <td>{{permiso_rolActual.rol.nombre}}</td>
+                    <td>{{permiso_rolActual.permiso.metodo+" "+permiso_rolActual.permiso.url}}</td>                    
+                    <td>
+                        <button type="button" class="btn btn-primary" 
+                                (click)="editar(permiso_rolActual._id,permiso_rolActual.rol._id,permiso_rolActual.permiso._id)">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger" 
+                                (click)="eliminar(permiso_rolActual._id)">
+                            <i class="fas fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </ng-container>
+        </table>
+    </nb-card>
+</div>
